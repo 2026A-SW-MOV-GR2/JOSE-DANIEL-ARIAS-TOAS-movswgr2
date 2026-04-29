@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+              <option name="originalContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&#10;    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;&#10;    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&#10;    android:id=&quot;@+id/main&quot;&#10;    android:layout_width=&quot;match_parent&quot;&#10;    android:layout_height=&quot;match_parent&quot;&#10;    tools:context=&quot;.MainActivity&quot;&gt;&#10;&#10;    &lt;TextView&#10;        android:layout_width=&quot;wrap_content&quot;&#10;        android:layout_height=&quot;wrap_content&quot;&#10;        android:text=&quot;@string/saludo&quot;&#10;        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;&#10;        app:layout_constraintEnd_toEndOf=&quot;parent&quot;&#10;        app:layout_constraintStart_toStartOf=&quot;parent&quot;&#10;        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;&#10;&#10;&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;androidx.constraintlayout.widget.ConstraintLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&#10;    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;&#10;    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&#10;    android:id=&quot;@+id/main&quot;&#10;    android:layout_width=&quot;match_parent&quot;&#10;    android:layout_height=&quot;match_parent&quot;&#10;    android:background=&quot;@color/main_bg_color&quot;&#10;    tools:context=&quot;.MainActivity&quot;&gt;&#10;&#10;    &lt;TextView&#10;        android:layout_width=&quot;wrap_content&quot;&#10;        android:layout_height=&quot;wrap_content&quot;&#10;        android:text=&quot;@string/saludo&quot;&#10;        android:textColor=&quot;@color/main_text_color&quot;&#10;        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;&#10;        app:layout_constraintEnd_toEndOf=&quot;parent&quot;&#10;        app:layout_constraintStart_toStartOf=&quot;parent&quot;&#10;        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;&#10;&#10;&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values-en-land/textos.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/values-en-land/textos.xml" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;resources&gt;&#10;    &lt;string name=&quot;saludo&quot;&gt;Hello World Landscape!&lt;/string&gt;&#10;&lt;/resources&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values-en/colors.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/values-en/colors.xml" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;resources&gt;&#10;    &lt;color name=&quot;main_text_color&quot;&gt;#FF0D47A1&lt;/color&gt;&#10;    &lt;color name=&quot;main_bg_color&quot;&gt;#FFFFF3E0&lt;/color&gt;&#10;&lt;/resources&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values-land/colors.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/values-land/colors.xml" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;resources&gt;&#10;    &lt;color name=&quot;main_text_color&quot;&gt;#FF1B5E20&lt;/color&gt;&#10;    &lt;color name=&quot;main_bg_color&quot;&gt;#FFE8F5E9&lt;/color&gt;&#10;&lt;/resources&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values-land/textos.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/values-land/textos.xml" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;resources&gt;&#10;    &lt;string name=&quot;saludo&quot;&gt;Hola Mundo Horizontal!&lt;/string&gt;&#10;&lt;/resources&gt;&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+              <option name="originalContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;resources&gt;&#10;    &lt;color name=&quot;black&quot;&gt;#FF000000&lt;/color&gt;&#10;    &lt;color name=&quot;white&quot;&gt;#FFFFFFFF&lt;/color&gt;&#10;&lt;/resources&gt;" />
+              <option name="updatedContent" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#10;&lt;resources&gt;&#10;    &lt;color name=&quot;black&quot;&gt;#FF000000&lt;/color&gt;&#10;    &lt;color name=&quot;white&quot;&gt;#FFFFFFFF&lt;/color&gt;&#10;    &lt;color name=&quot;main_text_color&quot;&gt;#FF1B1B1B&lt;/color&gt;&#10;    &lt;color name=&quot;main_bg_color&quot;&gt;#FFE3F2FD&lt;/color&gt;&#10;&lt;/resources&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
