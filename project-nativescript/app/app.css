@@ -4,3 +4,50 @@
 Button.-primary {
   font-size: 18;
 }
+
+/* Styles para Mock-CRUD de Mascotas */
+.title {
+  font-size: 16;
+  font-weight: bold;
+}
+.subtitle {
+  font-size: 12;
+  color: #666666;
+}
+.tipo {
+  font-size: 10;
+  color: #999999;
+  margin-top: 2;
+}
+.label-title {
+  font-size: 13;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 4;
+}
+.btn-delete {
+  background-color: #D32F2F;
+  color: white;
+  border-radius: 8;
+  padding: 6;
+}
+.fab {
+  width: 56;
+  height: 56;
+  horizontal-align: right;
+  vertical-align: bottom;
+  margin: 16;
+  border-radius: 28;
+  background-color: #2196F3;
+  color: white;
+  font-size: 28;
+  android-elevation: 6;
+}
+.btn-primary {
+  background-color: #6200EE;
+  color: white;
+  border-radius: 8;
+  padding: 10;
+  android-elevation: 2;
+}
+

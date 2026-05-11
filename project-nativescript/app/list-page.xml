@@ -1,0 +1,21 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" backgroundColor="white">
+  <ActionBar title="Mis Mascotas" />
+  <GridLayout rows="*, auto">
+    <ListView row="0" items="{{ items }}" itemTap="onItemTap">
+      <ListView.itemTemplate>
+        <GridLayout columns="60,*,auto" padding="12" rows="auto">
+          <Image col="0" src="{{ imagen }}" width="52" height="52" stretch="aspectFill" />
+          <StackLayout col="1" paddingLeft="12">
+            <Label text="{{ nombre }}" class="title" />
+            <Label text="{{ raza }}" class="subtitle" />
+            <Label text="{{ tipo }}" class="tipo" fontSize="10" color="#999999" />
+          </StackLayout>
+          <Button col="2" text="Eliminar" class="btn-delete" tap="onDeleteTap" />
+        </GridLayout>
+      </ListView.itemTemplate>
+    </ListView>
+
+    <Button text="+" class="fab" tap="onAddTap" row="1" />
+  </GridLayout>
+</Page>
+

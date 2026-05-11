@@ -1,0 +1,26 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" backgroundColor="white">
+  <ActionBar title="Editar Mascota" />
+  <ScrollView backgroundColor="white">
+    <StackLayout padding="16" backgroundColor="white">
+      <Label text="Nombre" class="label-title" />
+      <TextField hint="Ej: Max" text="{{ nombre }}" />
+
+      <Label text="Raza" class="label-title" marginTop="12" />
+      <TextField hint="Ej: Labrador" text="{{ raza }}" />
+
+      <Label text="Tipo" class="label-title" marginTop="12" />
+      <TextField hint="Perro / Gato / Otro" text="{{ tipo }}" />
+
+      <Label text="Fecha de Nacimiento" class="label-title" marginTop="12" />
+      <DatePicker date="{{ fechaNacimiento }}" />
+
+      <StackLayout orientation="horizontal" verticalAlignment="center" marginTop="12">
+        <Label text="Activo" class="label-title" verticalAlignment="center" />
+        <Switch checked="{{ activo }}" marginLeft="auto" />
+      </StackLayout>
+
+      <Button text="Guardar" tap="onSaveTap" class="btn-primary" marginTop="24" />
+    </StackLayout>
+  </ScrollView>
+</Page>
+

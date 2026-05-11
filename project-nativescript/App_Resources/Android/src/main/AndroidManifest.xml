@@ -21,13 +21,15 @@
 		android:theme="@style/AppTheme"
 		android:hardwareAccelerated="true">
 
+		<!-- Removed orientation and screenSize from configChanges so the Activity is recreated on rotation
+			 This lets Android load resources from values-land/ automatically (recommended for the workshop) -->
 		<activity
 			android:name="com.tns.NativeScriptActivity"
 			android:label="@string/title_activity_kimera"
-			android:configChanges="keyboard|keyboardHidden|orientation|screenSize|smallestScreenSize|screenLayout|locale|uiMode"
+			android:configChanges="keyboard|keyboardHidden|smallestScreenSize|screenLayout|locale|uiMode"
 			android:theme="@style/LaunchScreenTheme"
 			android:hardwareAccelerated="true"
-      		android:launchMode="singleTask"
+			android:launchMode="singleTask"
 			android:exported="true">
 
 			<meta-data android:name="SET_THEME_ON_LAUNCH" android:resource="@style/AppTheme" />

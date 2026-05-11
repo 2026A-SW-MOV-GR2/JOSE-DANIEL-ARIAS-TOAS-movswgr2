@@ -1,21 +1,20 @@
 import { EventData, Page, Color, Application } from '@nativescript/core';
 
-// ...existing code...
-
 function updateFromResources(page: Page) {
-    // Solo para Android se usan recursos por orientación/idioma con qualifiers
     if (Application.android) {
-        // Preferir la activity en primer plano para obtener la configuración actual
-        const activity = Application.android.foregroundActivity || Application.android.startActivity || Application.android.context;
+        // Obtener la configuración actual
+        const activity = Application.android.foregroundActivity
+                          || Application.android.startActivity
+                          || Application.android.context;
         const res = activity.getResources();
         const pkgName = activity.getPackageName();
 
-        // El sistema operativo elige automáticamente la carpeta según idioma y orientación
+        // El SO elige automáticamente la carpeta según idioma y orientación
         const idTexto = res.getIdentifier('saludo', 'string', pkgName);
         const idColorT = res.getIdentifier('main_text_color', 'color', pkgName);
         const idColorF = res.getIdentifier('main_bg_color', 'color', pkgName);
 
-        // Obtener los valores reales con comprobaciones por si faltan
+        // Obtener los valores desde recursos o usar valores por defecto
         const saludo = idTexto ? res.getString(idTexto) : 'Hola';
         const colorTexto = idColorT ? new Color(res.getColor(idColorT)) : new Color('#000000');
         const colorFondo = idColorF ? new Color(res.getColor(idColorF)) : new Color('#FFFFFF');
@@ -31,7 +30,7 @@ function updateFromResources(page: Page) {
         page.bindingContext = page.bindingContext || { mensaje: 'Hola', colorT: '#000000', colorF: '#FFFFFF' };
     }
 }
-
+// Para evitar múltiples actualizaciones rápidas durante la rotación, usamos un debounce simple
 function scheduleUpdateFromResources(page: Page) {
     const pending = (page as any)._orientationTimer;
     if (pending) {
@@ -47,6 +46,7 @@ function scheduleUpdateFromResources(page: Page) {
     }, 100);
 }
 
+// Se llama al navegar a la página para configurar la UI y registrar el listener de orientación
 export function onNavigatingTo(args: EventData) {
     const page = <Page>args.object;
 
@@ -61,6 +61,7 @@ export function onNavigatingTo(args: EventData) {
     Application.on(Application.orientationChangedEvent, handler);
 }
 
+// Se llama al navegar desde la página para limpiar el listener y cualquier timer pendiente
 export function onNavigatingFrom(args: EventData) {
     const page = <Page>args.object;
     const handler = (page as any)._orientationHandler;
