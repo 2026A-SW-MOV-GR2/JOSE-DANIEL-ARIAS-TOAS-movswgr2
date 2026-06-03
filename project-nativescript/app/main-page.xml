@@ -1,5 +1,30 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" backgroundColor="{{ colorF }}">
-    <StackLayout verticalAlignment="middle">
-        <Label text="{{ mensaje }}" color="{{ colorT }}" fontSize="24" textAlignment="center" />
-    </StackLayout>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Mi Aplicación">
+        <ActionItem ios.position="left" android.position="actionBar" tap="onDrawerButtonTap">
+            <Label text="☰" fontSize="24" />
+        </ActionItem>
+    </ActionBar>
+
+    <drawer:RadSideDrawer id="drawer" xmlns:drawer="nativescript-ui-sidedrawer">
+        <drawer:RadSideDrawer.drawerContent>
+            <StackLayout backgroundColor="#ffffff">
+                <Label text="Menú Principal" padding="20" fontSize="20" fontWeight="bold" backgroundColor="#f4f4f4" />
+                <ListView items="{{ menuItems }}" itemTap="onItemTap">
+                    <ListView.itemTemplate>
+                        <Label text="{{ name }}" padding="15" fontSize="16" />
+                    </ListView.itemTemplate>
+                </ListView>
+            </StackLayout>
+        </drawer:RadSideDrawer.drawerContent>
+
+        <drawer:RadSideDrawer.mainContent>
+            <GridLayout rows="*,auto" padding="16">
+                <StackLayout row="0" horizontalAlignment="center" verticalAlignment="middle">
+                    <Label text="Pantalla de inicio" horizontalAlignment="center" fontSize="24" fontWeight="bold" />
+                    <Label text="Selecciona un módulo desde el menú lateral" horizontalAlignment="center" textWrap="true" marginTop="12" />
+                </StackLayout>
+                <Button row="1" text="Abrir Módulo 1: API REST" tap="onOpenNetworkPageTap" class="btn-primary" />
+            </GridLayout>
+        </drawer:RadSideDrawer.mainContent>
+    </drawer:RadSideDrawer>
 </Page>

@@ -8,6 +8,7 @@
     "noEmitHelpers": true,
     "noEmitOnError": true,
     "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
     "lib": ["ESNext", "dom"],
     "baseUrl": ".",
     "paths": {
@@ -17,5 +18,5 @@
   },
   "include": ["app/**/*"],
   "files": ["./references.d.ts"],
-  "exclude": ["node_modules", "platforms"]
+  "exclude": ["node_modules", "platforms", "app/tests"]
 }

@@ -42,14 +42,14 @@ function confirmAndDelete(index: number, nombre: string) {
     const alertDialogBuilder = new android.app.AlertDialog.Builder(ctx);
     alertDialogBuilder.setTitle('Confirmar eliminación');
     alertDialogBuilder.setMessage(`¿Eliminar a ${nombre}?`);
-    alertDialogBuilder.setPositiveButton('Sí', new android.content.DialogInterface.OnClickListener({
+    const listener: any = new android.content.DialogInterface.OnClickListener({
       onClick: function(dialog, which) {
         items.splice(index, 1);
         // Mostrar Toast nativo
         android.widget.Toast.makeText(ctx, `${nombre} ha sido eliminada`, android.widget.Toast.LENGTH_SHORT).show();
       }
-    }));
-    alertDialogBuilder.setNegativeButton('No', null);
+    });
+    alertDialogBuilder.setPositiveButton('Sí', listener);
     alertDialogBuilder.show();
   } else {
     // Fallback simple para iOS / otros

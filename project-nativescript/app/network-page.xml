@@ -1,0 +1,15 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" backgroundColor="white">
+      <ActionBar title="Api Rest" />
+        <ScrollView backgroundColor="white">
+            <StackLayout padding="16" backgroundColor="white">
+                <Label text="ID" class="label-title" />
+                <TextField hint="Ej: 1" keyboardType="number" text="{{ id }}" />
+                <Button text="Obtener" tap="onGetDataTap" class="btn-primary" isEnabled="{{ canInteract }}" />
+                <Label text="{{ message }}" marginTop="12" visibility="{{ message ? 'visible' : 'collapsed' }}" />
+                <TextField hint="title" text="{{ title }}" marginTop="12" isEnabled="{{ canInteract }}" />
+                <TextField hint="body" text="{{ body }}" marginTop="12" isEnabled="{{ canInteract }}" />
+                <Button text="Actualizar" tap="onSendDataTap" class="btn-primary" marginTop="12" isEnabled="{{ canUpdate }}" />
+                <ActivityIndicator busy="{{ isBusy }}" />
+            </StackLayout>
+        </ScrollView>
+</Page>

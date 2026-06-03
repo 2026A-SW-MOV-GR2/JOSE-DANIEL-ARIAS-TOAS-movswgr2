@@ -14,7 +14,6 @@
         </GridLayout>
       </ListView.itemTemplate>
     </ListView>
-
     <Button text="+" class="fab" tap="onAddTap" row="1" />
   </GridLayout>
 </Page>
