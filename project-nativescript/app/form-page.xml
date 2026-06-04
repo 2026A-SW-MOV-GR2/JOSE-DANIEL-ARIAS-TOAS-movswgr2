@@ -1,26 +1,57 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" backgroundColor="white">
-  <ActionBar title="Editar Mascota" />
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      navigatingTo="onNavigatingTo"
+      backgroundColor="white">
+
+  <ActionBar title="{{ actionTitle }}"
+             backgroundColor="{{ storageColor }}"
+             color="white">
+    <!-- El botón de retroceso nativo vuelve a list-page -->
+  </ActionBar>
+
   <ScrollView backgroundColor="white">
     <StackLayout padding="16" backgroundColor="white">
-      <Label text="Nombre" class="label-title" />
-      <TextField hint="Ej: Max" text="{{ nombre }}" />
 
-      <Label text="Raza" class="label-title" marginTop="12" />
-      <TextField hint="Ej: Labrador" text="{{ raza }}" />
+      <!-- Badge que muestra en qué motor se guardará -->
+      <StackLayout orientation="horizontal" marginBottom="16"
+                   backgroundColor="{{ storageColor }}"
+                   borderRadius="8" padding="8 14">
+        <Label text="{{ storageLabel }}" color="white" fontSize="13" fontWeight="bold"
+               verticalAlignment="center" />
+        <Label text=" — Los cambios se guardarán aquí"
+               color="rgba(255,255,255,0.85)" fontSize="12"
+               verticalAlignment="center" />
+      </StackLayout>
 
-      <Label text="Tipo" class="label-title" marginTop="12" />
-      <TextField hint="Perro / Gato / Otro" text="{{ tipo }}" />
+      <!-- Campos del formulario -->
+      <Label text="Nombre *" class="label-title" />
+      <TextField hint="Ej: Max" text="{{ nombre }}" returnKeyType="next"
+                 class="input-field-form" />
 
-      <Label text="Fecha de Nacimiento" class="label-title" marginTop="12" />
-      <DatePicker date="{{ fechaNacimiento }}" />
+      <Label text="Raza" class="label-title" marginTop="14" />
+      <TextField hint="Ej: Labrador" text="{{ raza }}" returnKeyType="next"
+                 class="input-field-form" />
 
-      <StackLayout orientation="horizontal" verticalAlignment="center" marginTop="12">
+      <Label text="Tipo" class="label-title" marginTop="14" />
+      <TextField hint="Perro / Gato / Otro" text="{{ tipo }}"
+                 class="input-field-form" />
+
+      <Label text="Fecha de Nacimiento" class="label-title" marginTop="14" />
+      <DatePicker date="{{ fechaNacimiento }}" marginTop="4" />
+
+      <StackLayout orientation="horizontal" verticalAlignment="center" marginTop="14">
         <Label text="Activo" class="label-title" verticalAlignment="center" />
         <Switch checked="{{ activo }}" marginLeft="auto" />
       </StackLayout>
 
-      <Button text="Guardar" tap="onSaveTap" class="btn-primary" marginTop="24" />
+      <Button text="💾  Guardar en {{ storageLabel }}"
+              tap="onSaveTap"
+              backgroundColor="{{ storageColor }}"
+              color="white"
+              borderRadius="8"
+              padding="12"
+              marginTop="28"
+              android-elevation="3" />
+
     </StackLayout>
   </ScrollView>
 </Page>
-

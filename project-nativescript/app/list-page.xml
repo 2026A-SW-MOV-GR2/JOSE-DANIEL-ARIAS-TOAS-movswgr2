@@ -1,20 +1,89 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" backgroundColor="white">
-  <ActionBar title="Mis Mascotas" />
-  <GridLayout rows="*, auto">
-    <ListView row="0" items="{{ items }}" itemTap="onItemTap">
-      <ListView.itemTemplate>
-        <GridLayout columns="60,*,auto" padding="12" rows="auto">
-          <Image col="0" src="{{ imagen }}" width="52" height="52" stretch="aspectFill" />
-          <StackLayout col="1" paddingLeft="12">
-            <Label text="{{ nombre }}" class="title" />
-            <Label text="{{ raza }}" class="subtitle" />
-            <Label text="{{ tipo }}" class="tipo" fontSize="10" color="#999999" />
-          </StackLayout>
-          <Button col="2" text="Eliminar" class="btn-delete" tap="onDeleteTap" />
-        </GridLayout>
-      </ListView.itemTemplate>
-    </ListView>
-    <Button text="+" class="fab" tap="onAddTap" row="1" />
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" navigatingFrom="onNavigatingFrom" backgroundColor="white">
+
+  <ActionBar backgroundColor="{{ storageColor }}" color="white">
+    <NavigationButton visibility="collapsed" />
+    <ActionBar.titleView>
+      <GridLayout columns="auto, *, auto, auto" verticalAlignment="center">
+        <!-- Drawer Menu -->
+        <Label col="0" text="☰" fontSize="24" color="white" padding="10" tap="onMenuTap" />
+
+        <!-- Title -->
+        <Label col="1" text="Mis Mascotas" fontSize="18" fontWeight="bold" color="white" verticalAlignment="center" marginLeft="10" />
+
+        <!-- Mode Label -->
+        <Label col="2" text="{{ isSqlMode ? 'SQL' : 'NoSQL' }}" fontSize="12" color="white" verticalAlignment="center" marginRight="8" />
+
+        <!-- FIX: Only one checked attribute to prevent infinite loop -->
+        <Switch col="3" checked="{{ isSqlMode }}" checkedChange="onStorageModeToggle" verticalAlignment="center" marginRight="10" />
+      </GridLayout>
+    </ActionBar.titleView>
+  </ActionBar>
+
+  <GridLayout>
+    <!-- Main Content -->
+    <GridLayout rows="auto, *" backgroundColor="white">
+
+      <!-- Source Info Banner -->
+      <StackLayout row="0" backgroundColor="#F5F5F5" padding="12 16" orientation="horizontal">
+        <Label text="{{ sourceBannerText }}" fontSize="13" color="#333" verticalAlignment="center" />
+        <Label text="{{ sourceCountText }}" fontSize="12" color="#666" marginLeft="auto" verticalAlignment="center" />
+      </StackLayout>
+
+      <!-- Loading / Empty States / ListView -->
+      <GridLayout row="1">
+        <!-- Loading -->
+        <StackLayout verticalAlignment="center" visibility="{{ isLoading ? 'visible' : 'collapsed' }}">
+          <ActivityIndicator busy="true" color="{{ storageColor }}" width="40" height="40" />
+          <Label text="Cargando..." horizontalAlignment="center" marginTop="10" color="#666" />
+        </StackLayout>
+
+        <!-- Empty State -->
+        <StackLayout verticalAlignment="center" padding="40" visibility="{{ !isLoading &amp;&amp; items.length === 0 ? 'visible' : 'collapsed' }}">
+          <Label text="{{ isSqlMode ? '🗄️' : '📦' }}" fontSize="60" horizontalAlignment="center" />
+          <Label text="No hay registros" horizontalAlignment="center" fontSize="18" fontWeight="bold" color="#333" marginTop="10" />
+          <Label text="Presiona + para agregar una nueva mascota" horizontalAlignment="center" textAlignment="center" color="#666" marginTop="4" />
+        </StackLayout>
+
+        <!-- ListView: Styled to match form-page items -->
+        <ListView items="{{ items }}" itemTap="onItemTap" separatorColor="transparent" visibility="{{ !isLoading ? 'visible' : 'collapsed' }}">
+          <ListView.itemTemplate>
+            <StackLayout padding="8 16">
+              <GridLayout columns="60, *, auto" rows="auto" backgroundColor="white" borderRadius="12" padding="12" androidElevation="2" marginBottom="4">
+                <Image col="0" src="{{ imagen }}" width="50" height="50" stretch="aspectFill" borderRadius="25" />
+
+                <StackLayout col="1" marginLeft="16" verticalAlignment="center">
+                  <Label text="{{ nombre }}" fontSize="16" fontWeight="bold" color="#1A1A1A" />
+                  <Label text="{{ raza }}" fontSize="14" color="#666" />
+                  <Label text="{{ tipo }}" fontSize="12" color="#6200EE" fontWeight="bold" marginTop="2" />
+                </StackLayout>
+
+                  <Button col="2" text="🗑" tap="onDeleteTap" fontSize="20" backgroundColor="transparent" color="#D32F2F" verticalAlignment="center" />
+              </GridLayout>
+            </StackLayout>
+          </ListView.itemTemplate>
+        </ListView>
+      </GridLayout>
+    </GridLayout>
+
+    <!-- Floating Action Button -->
+    <Button text="+" tap="onAddTap" class="fab" horizontalAlignment="right" verticalAlignment="bottom" />
+
+    <!-- Drawer Overlay -->
+    <GridLayout backgroundColor="rgba(0,0,0,0.4)" tap="onDrawerClose" visibility="{{ drawerOpen ? 'visible' : 'collapsed' }}" />
+
+    <!-- Drawer Menu Panel -->
+    <StackLayout width="280" horizontalAlignment="left" backgroundColor="white" visibility="{{ drawerOpen ? 'visible' : 'collapsed' }}">
+      <StackLayout backgroundColor="{{ storageColor }}" padding="30 20" verticalAlignment="center">
+        <Label text="🐾 PetApp" fontSize="24" fontWeight="bold" color="white" />
+        <Label text="Taller Persistencia Dual" fontSize="13" color="rgba(255,255,255,0.8)" marginTop="4" />
+      </StackLayout>
+
+      <StackLayout padding="16">
+        <Button text="📋  Mascotas" tap="onNavMascotas" style="background-color: transparent; color: #333; text-align: left; padding: 15; font-size: 16;" />
+        <Button text="🌐  API Rest" tap="onNavAPI" style="background-color: transparent; color: #333; text-align: left; padding: 15; font-size: 16;" />
+        <Button text="🔐  Secretos" tap="onNavSecretos" style="background-color: transparent; color: #333; text-align: left; padding: 15; font-size: 16;" />
+      </StackLayout>
+    </StackLayout>
+
   </GridLayout>
 </Page>
-
