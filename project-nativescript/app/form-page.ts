@@ -1,6 +1,6 @@
 import { EventData, Page, Observable, Frame } from '@nativescript/core';
 import { Mascota } from './data';
-import { StorageMode } from './models/storage-mode.model';
+import { StorageMode, STORAGE_COLORS, STORAGE_LABELS } from './models/storage-mode.model';
 import { saveItem, updateItem, loadItems } from './services/storage.service';
  
 let vm:          Observable;
@@ -18,8 +18,8 @@ export async function onNavigatingTo(args: EventData) {
  
   // Color de la ActionBar según el motor activo
   vm.set('storageMode',  storageMode);
-  vm.set('storageColor', storageMode === 'SQL' ? '#1565C0' : '#1B5E20');
-  vm.set('storageLabel', storageMode === 'SQL' ? '🗄️ SQLite' : '📦 NoSQL');
+  vm.set('storageColor', STORAGE_COLORS[storageMode]);
+  vm.set('storageLabel', STORAGE_LABELS[storageMode]);
   vm.set('actionTitle',  mode === 'edit' ? 'Editar Mascota' : 'Nueva Mascota');
  
   if (mode === 'edit' && typeof ctx.itemId === 'number') {

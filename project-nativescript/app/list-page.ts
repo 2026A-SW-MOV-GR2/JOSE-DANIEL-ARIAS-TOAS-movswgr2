@@ -29,9 +29,9 @@ export async function onNavigatingTo(args: EventData) {
   vm.set('items', []);
   vm.set('isLoading', false);
   vm.set('drawerOpen', false);
-  vm.set('isSqlMode', true);
-
-  updateModeUI('SQL');
+  const currentMode = getMode();
+  vm.set('isSqlMode', currentMode === 'SQL');
+  updateModeUI(currentMode);
   page.bindingContext = vm;
 
   if (!_initialized) {
@@ -98,7 +98,8 @@ export function onAddTap() {
 }
 
 export function onDeleteTap(args: any) {
-  const item = args.object?._bindingContext as Mascota;
+  const button = args.object;
+  const item = args.object?.bindingContext as Mascota;
   if (!item?.id) {
     console.warn('[WARN] No se encontro la mascota a eliminar');
     return;

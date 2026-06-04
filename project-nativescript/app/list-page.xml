@@ -47,7 +47,7 @@
         <!-- ListView: Styled to match form-page items -->
         <ListView items="{{ items }}" itemTap="onItemTap" separatorColor="transparent" visibility="{{ !isLoading ? 'visible' : 'collapsed' }}">
           <ListView.itemTemplate>
-            <StackLayout padding="8 16">
+            <GridLayout padding="8 16">
               <GridLayout columns="60, *, auto" rows="auto" backgroundColor="white" borderRadius="12" padding="12" androidElevation="2" marginBottom="4">
                 <Image col="0" src="{{ imagen }}" width="50" height="50" stretch="aspectFill" borderRadius="25" />
 
@@ -59,7 +59,7 @@
 
                   <Button col="2" text="🗑" tap="onDeleteTap" fontSize="20" backgroundColor="transparent" color="#D32F2F" verticalAlignment="center" />
               </GridLayout>
-            </StackLayout>
+            </GridLayout>
           </ListView.itemTemplate>
         </ListView>
       </GridLayout>
