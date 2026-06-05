@@ -1,5 +1,7 @@
 import { Application, knownFolders, File } from '@nativescript/core';
 import { SecretMechanism } from '../models/secret-mode.model';
+// Añade esta línea cerca de tus imports
+declare const androidx: any;
 
 declare var android: any;
 declare var java: any;
@@ -21,7 +23,7 @@ export function spSave(key: string, value: string): void {
 export function spGet(key: string): string | null {
     const prefs = getSharedPrefs();
     if (!prefs.contains(key)) return null;
-    return prefs.getString(key, null);
+    return prefs.getString(key, "");
 }
 
 // ─── DataStore (simulado con archivo JSON — comportamiento equivalente) ────────
