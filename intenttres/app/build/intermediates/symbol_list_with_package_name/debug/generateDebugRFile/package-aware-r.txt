@@ -1,0 +1,22 @@
+com.example.intenttres
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id btn_devolver_respuesta
+id btn_ir_intent_explicito
+id btn_ir_intent_implicito
+id main
+id textView
+id tvDescripcion
+id tvId
+id tvNombre
+layout activity_cintent_explicito_parametros
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base_Theme_Intenttres
+style Theme_Intenttres
+xml backup_rules
+xml data_extraction_rules
