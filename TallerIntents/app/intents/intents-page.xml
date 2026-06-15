@@ -1,0 +1,14 @@
+<GridLayout rows="auto, auto, auto" margin="20">
+    <StackLayout row="0" class="card">
+        <TextField id="phoneField" hint="0987654321" />
+        <Button text="Iniciar Dial" tap="onDialTap" />
+        <Button text="Iniciar Foto" tap="onPhotoTap" />
+        <Image id="miniature" height="150" width="150" />
+    </StackLayout>
+
+    <StackLayout row="1" class="card" margin="20">
+        <Label text="Datos Recibidos:" fontWeight="bold" />
+        <Label id="receivedText" textWrapping="true" />
+        <Image id="receivedImage" height="150" />
+    </StackLayout>
+</GridLayout>
