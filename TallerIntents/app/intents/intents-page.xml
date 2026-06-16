@@ -1,14 +1,39 @@
-<GridLayout rows="auto, auto, auto" margin="20">
-    <StackLayout row="0" class="card">
-        <TextField id="phoneField" hint="0987654321" />
-        <Button text="Iniciar Dial" tap="onDialTap" />
-        <Button text="Iniciar Foto" tap="onPhotoTap" />
-        <Image id="miniature" height="150" width="150" />
-    </StackLayout>
+<Page navigatingTo="navigatingTo">
+    <ActionBar title="Taller Intents" />
+    <ScrollView>
+        <StackLayout class="main-container">
 
-    <StackLayout row="1" class="card" margin="20">
-        <Label text="Datos Recibidos:" fontWeight="bold" />
-        <Label id="receivedText" textWrapping="true" />
-        <Image id="receivedImage" height="150" />
-    </StackLayout>
-</GridLayout>
+            <Label text="INTENTS SALIENTES" class="module-header header-salientes" />
+
+            <StackLayout class="panel">
+                <Label text="Llamador Misterioso" class="section-title" />
+                <TextField hint="Ej: 0987654321" text="{{ phoneNumber }}" keyboardType="phone" class="input-field" />
+                <Button text="📞 Iniciar Dial" tap="onDialTap" class="btn-primary" />
+            </StackLayout>
+
+            <StackLayout class="panel" margin="0 0 24 0">
+                <Label text="Foto Express" class="section-title" />
+                <Button text="📷 Tomar Foto" tap="onPhotoTap" class="btn-primary" margin="0 0 12 0" />
+                <Image src="{{ photoSource }}" class="preview-image" visibility="{{ photoSource ? 'visible' : 'collapsed' }}" />
+                <Label text="Aquí aparecerá la miniatura" class="placeholder-text" visibility="{{ photoSource ? 'collapsed' : 'visible' }}" />
+            </StackLayout>
+
+            <Label text="INTENTS ENTRANTES" class="module-header header-entrantes" />
+
+            <StackLayout class="panel">
+                <Label text="Estado: Esperando datos externos..." color="#757575" fontSize="13" margin="0 0 12 0" visibility="{{ receivedText || receivedImageSource ? 'collapsed' : 'visible' }}" />
+                
+                <StackLayout visibility="{{ receivedText ? 'visible' : 'collapsed' }}">
+                    <Label text="📄 Texto recibido:" fontWeight="bold" fontSize="14" margin="0 0 6 0" />
+                    <Label text="{{ receivedText }}" class="received-box" />
+                </StackLayout>
+
+                <StackLayout visibility="{{ receivedImageSource ? 'visible' : 'collapsed' }}" margin="12 0 0 0">
+                    <Label text="🖼 Imagen recibida:" fontWeight="bold" fontSize="14" margin="0 0 6 0" />
+                    <Image src="{{ receivedImageSource }}" height="220" stretch="aspectFit" borderRadius="8" backgroundColor="#E0E0E0" />
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</Page>

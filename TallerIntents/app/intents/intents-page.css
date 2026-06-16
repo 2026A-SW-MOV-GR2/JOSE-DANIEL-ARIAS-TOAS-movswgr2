@@ -1,0 +1,73 @@
+/* Contenedor principal */
+.main-container {
+    margin: 16;
+}
+
+/* Encabezados de módulo */
+.module-header {
+    font-size: 14;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 8 12;
+    border-radius: 4;
+    margin: 0 0 12 0;
+}
+
+.header-salientes { background-color: #1565C0; }
+.header-entrantes { background-color: #2E7D32; }
+
+/* Paneles de tarjetas */
+.panel {
+    background-color: #F5F5F5;
+    border-radius: 8;
+    padding: 16;
+    margin: 0 0 12 0;
+}
+
+/* Elementos de formulario y botones */
+.section-title {
+    font-weight: bold;
+    font-size: 15;
+    margin: 0 0 8 0;
+}
+
+.input-field {
+    font-size: 16;
+    border-bottom-width: 1;
+    border-bottom-color: #1565C0;
+    background-color: transparent;
+    margin: 0 0 12 0;
+}
+
+.btn-primary {
+    background-color: #1565C0;
+    color: #ffffff;
+    border-radius: 6;
+    font-size: 15;
+    padding: 10 0;
+}
+
+/* Imágenes y placeholders */
+.preview-image {
+    height: 150;
+    width: 150;
+    stretch: aspectFill;
+    border-radius: 8;
+    background-color: #E0E0E0;
+}
+
+.placeholder-text {
+    color: #9E9E9E;
+    text-align: center;
+    font-size: 13;
+}
+
+/* Estilos para datos recibidos */
+.received-box {
+    color: #212121;
+    font-size: 14;
+    padding: 10;
+    background-color: #E3F2FD;
+    border-radius: 6;
+    text-wrap: true;
+}
