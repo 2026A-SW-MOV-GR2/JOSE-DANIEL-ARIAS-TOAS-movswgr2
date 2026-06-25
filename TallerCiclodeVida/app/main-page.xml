@@ -1,0 +1,7 @@
+<Page navigatingTo="onNavigatingTo">
+    <StackLayout class="p-20">
+        <Label text="Contador Actual:" class="h2 text-center" />
+        <Label text="{{ count }}" class="h1 text-center font-weight-bold" />
+        <Button text="Incrementar +1" tap="onIncrement" class="btn btn-primary" />
+    </StackLayout>
+</Page>
